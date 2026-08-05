@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- charset은 반드시 다른 meta보다 먼저 — og 태그의 한글이 깨지지 않게 -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>현진 ♥ 지수 피로연</title>
+
+    <!-- 카카오톡 · SNS 공유 카드 -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="안현진 ♥ 김지수 피로연에 초대합니다" />
+    <meta
+      property="og:description"
+      content="2026.10.03 토요일 오후 5:00~7:30 · 남원 참좋은 웨딩컨벤션 3층"
+    />
+    <meta
+      property="og:url"
+      content="https://ahnhyeon-jin.github.io/wedding_invitation/reception.html"
+    />
+    <!-- 가로 이미지여야 카톡에서 큰 카드로 뜸 (images/피로연2.jpg 복사본) -->
+    <meta
+      property="og:image"
+      content="https://ahnhyeon-jin.github.io/wedding_invitation/images/share.jpg"
+    />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="1067" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Noto Serif KR", serif;
+        background: #fafafa;
+        color: #333;
+        text-align: center;
+      }
+
+      .section {
+        padding: 40px 20px;
+        max-width: 500px; /* ← 전체 폭 제한 */
+        margin: 0 auto;
+      }
+
+      .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("images/피로연1.jpg") center/cover no-repeat;
+        background-color: black; /* 빈 공간 채움 */
+        z-index: 0;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+
+      .hero * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .label {
+        font-size: 14px;
+        letter-spacing: 6px;
+        margin-bottom: 16px;
+        opacity: 0.85;
+      }
+
+      h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      .date {
+        font-size: 18px;
+      }
+
+      .divider {
+        width: 50px;
+        height: 2px;
+        background: #ccc;
+        margin: 20px auto;
+      }
+
+      .gallery img {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 10px;
+      }
+
+      .map {
+        width: 90%;
+        height: 200px;
+        border-radius: 16px;
+        margin: 0 auto;
+        display: block;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* ← 그림자 */
+      }
+
+      .footer {
+        font-size: 14px;
+        color: #777;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        margin-top: 10px;
+        background: #333;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+      }
+
+      .note {
+        font-size: 14px;
+        color: #777;
+        line-height: 1.8;
+      }
+
+      /* 혼주 표기 */
+      .host {
+        margin-top: 28px;
+        font-size: 15px;
+        line-height: 2;
+      }
+
+      .host strong {
+        font-weight: 700;
+      }
+
+      /* 계좌 안내 */
+      .account-box {
+        padding: 16px;
+        margin-top: 14px;
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 12px;
+      }
+
+      .account-box p {
+        margin: 4px 0;
+        font-size: 15px;
+      }
+
+      /* 꼭 읽어야 하는 안내 (음식 철수 시간 등) */
+      .highlight {
+        display: inline-block;
+        padding: 14px 18px;
+        background: #f2ede6;
+        border-radius: 12px;
+        font-size: 14px;
+        line-height: 1.9;
+        color: #5a4a3a;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 메인 -->
+    <div class="hero">
+      <div class="label">RECEPTION</div>
+      <h1>안현진 ♥ 김지수</h1>
+      <div class="date">2026.10.03 토요일 오후 5시</div>
+      <div class="date">남원 참좋은 웨딩컨벤션 3층</div>
+    </div>
+
+    <!-- 인사말 -->
+    <div class="section">
+      <p>
+        저희 차녀 지수가 안현진 군과 결혼합니다.<br />
+        서울에서 예식을 올리기에 앞서, 그동안 저희 가족을 아껴 주신 분들을
+        모시고 조촐한 식사 자리를 마련했습니다. 귀한 걸음으로 오셔서 두 사람의
+        앞날을 축복해 주시면 더없는 기쁨으로 간직하겠습니다.
+      </p>
+
+      <div class="host">
+        <p>최동춘 · 양인숙 의 차녀 <strong>지수</strong></p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 피로연 안내 -->
+    <div class="section">
+      <h2>피로연 안내</h2>
+      <p>2026년 10월 3일 토요일<br />오후 5:00 ~ 7:30</p>
+      <p>
+        남원 참좋은 웨딩컨벤션 3층 연회장<br />
+        <span class="note">전북 남원시 충정로 336</span>
+      </p>
+      <p class="note">
+        정해진 순서 없이 편하게 오셔서<br />
+        식사 나누시는 자리로 준비했습니다.
+      </p>
+      <p class="highlight">
+        음식은 오후 7시까지 준비되어 있습니다.<br />
+        식사하실 분은 7시 이전에 오시면 좋겠습니다.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 본식 안내 -->
+    <div class="section">
+      <h2>본식 안내</h2>
+      <p>2026년 10월 11일 일요일 오전 10시 40분</p>
+      <p>더링크서울 트리뷰트 포트폴리오 호텔 웨딩</p>
+      <a class="btn" href="./invitation.html">본식 청첩장 보기</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 지도 -->
+    <div class="section">
+      <h2>오시는 길</h2>
+
+      <p>
+        남원 참좋은 웨딩컨벤션 3층 연회장<br />
+        <span class="note">전북 남원시 충정로 336</span>
+      </p>
+
+      <!-- 구글 지도 (미리보기용) -->
+      <iframe
+        class="map"
+        src="https://maps.google.com/maps?q=전북 남원시 충정로 336&t=&z=16&ie=UTF8&iwloc=&output=embed"
+      >
+      </iframe>
+
+      <br />
+
+      <!-- 네이버 지도 (앱 이동용) — naver.me 단축 링크로 교체하면 앱 연동이 더 자연스러움 -->
+      <a
+        class="btn"
+        href="https://map.naver.com/p/search/남원 참좋은 웨딩컨벤션"
+        target="_blank"
+      >
+        네이버 지도에서 보기
+      </a>
+
+      <p class="note">주차 안내는 확정 후 업데이트하겠습니다.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 갤러리 -->
+    <div class="section gallery">
+      <h2>Gallery</h2>
+      <img src="images/피로연2.jpg" alt="피로연 사진" />
+      <img src="images/피로연3.jpg" alt="피로연 사진" />
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 연락처 -->
+    <div class="section">
+      <h2>연락처</h2>
+      <p>신랑: 010-7160-4636</p>
+      <p>신부: 010-7557-7871</p>
+    </div>
+
+    <div class="section">
+      <h2>마음 전하실 곳</h2>
+
+      <p class="note">
+        축하의 마음을 전하고 싶으신 분들을 위해 안내드립니다.
+      </p>
+
+      <!-- 계좌번호 자리표시자 — 실제 번호로 교체 필요 -->
+      <div class="account-box">
+        <p><strong>혼주 최동춘</strong></p>
+        <p>국민은행 092-10204110201</p>
+      </div>
+
+      <div class="account-box">
+        <p><strong>혼주 양인숙</strong></p>
+        <p>국민은행 092-10204110201</p>
+      </div>
+    </div>
+
+    <!-- 푸터 -->
+    <div class="section footer">
+      <p>귀한 시간 내어 함께해 주셔서 감사합니다</p>
+    </div>
+  </body>
+</html>
