@@ -195,8 +195,8 @@
   </head>
   <body>
     <!--
-      배경음악. 곡의 56초 지점부터 시작하고, 끝나면 처음이 아니라
-      다시 56초로 돌아가 반복한다. 재생 시작 방식은 하단 스크립트 참고
+      배경음악. 처음부터 재생하고 끝나면 반복한다. 시작 지점은 하단
+      스크립트의 START 값으로 조절. 재생을 시작하는 방식도 그쪽 참고
       (자동재생 시도 → 차단되면 첫 화면 터치). 버튼은 정지/재생용.
     -->
     <button id="bgm-toggle" type="button" aria-label="배경음악 재생">♪</button>
@@ -327,7 +327,7 @@
 
     <script>
       (function () {
-        var START = 56; // 이 지점(초)부터 재생
+        var START = 0; // 이 지점(초)부터 재생
         var audio = document.getElementById("bgm");
         var btn = document.getElementById("bgm-toggle");
 
