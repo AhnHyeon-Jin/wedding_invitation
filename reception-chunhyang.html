@@ -343,9 +343,9 @@
   </head>
   <body>
     <!--
-      배경음악. 모바일 브라우저는 소리 있는 자동재생을 차단하므로
-      하객이 버튼을 한 번 눌러야 재생된다. 곡의 56초 지점부터 시작하고,
-      끝나면 처음이 아니라 다시 56초로 돌아가 반복한다.
+      배경음악. 곡의 56초 지점부터 시작하고, 끝나면 처음이 아니라
+      다시 56초로 돌아가 반복한다. 재생 시작 방식은 하단 스크립트 참고
+      (자동재생 시도 → 차단되면 첫 화면 터치). 버튼은 정지/재생용.
     -->
     <button id="bgm-toggle" type="button" aria-label="배경음악 재생">♪</button>
     <audio id="bgm" src="audio/bgm.mp3" preload="metadata"></audio>
@@ -497,29 +497,55 @@
           }
         }
 
+        function start() {
+          if (audio.readyState < 1) {
+            // 길이를 모르면 seek이 실패하므로 메타데이터 로드 후 이동
+            audio.addEventListener("loadedmetadata", seekToStart, {
+              once: true,
+            });
+          } else if (audio.currentTime < START) {
+            seekToStart();
+          }
+          return Promise.resolve(audio.play());
+        }
+
         // 끝나면 0초가 아니라 START로 돌아가 반복 (loop 속성으로는 불가)
         audio.addEventListener("ended", function () {
           seekToStart();
           audio.play();
         });
 
+        // 버튼 모양은 실제 재생 상태를 따라가게 둔다
+        audio.addEventListener("play", function () {
+          btn.textContent = "❙❙";
+          btn.setAttribute("aria-label", "배경음악 정지");
+        });
+        audio.addEventListener("pause", function () {
+          btn.textContent = "♪";
+          btn.setAttribute("aria-label", "배경음악 재생");
+        });
+
+        // 1) 우선 그냥 재생을 시도한다. 카카오톡 인앱 브라우저처럼
+        //    자동재생이 허용된 환경에서는 이대로 소리가 난다.
+        start().catch(function () {
+          // 2) 차단되면 첫 화면 터치를 기다린다. 버튼을 따로 누르지 않아도
+          //    스크롤하려고 화면을 짚는 순간 재생돼 자동재생처럼 느껴진다.
+          //    스크롤 이벤트는 사용자 제스처로 인정되지 않아 pointerdown을 쓴다.
+          var kick = function (e) {
+            if (btn.contains(e.target)) return; // 버튼은 자기 핸들러가 처리
+            start().catch(function () {});
+            document.removeEventListener("pointerdown", kick);
+            document.removeEventListener("keydown", kick);
+          };
+          document.addEventListener("pointerdown", kick);
+          document.addEventListener("keydown", kick);
+        });
+
         btn.addEventListener("click", function () {
           if (audio.paused) {
-            if (audio.readyState < 1) {
-              // 길이를 모르면 seek이 실패하므로 메타데이터 로드 후 이동
-              audio.addEventListener("loadedmetadata", seekToStart, {
-                once: true,
-              });
-            } else if (audio.currentTime < START) {
-              seekToStart();
-            }
-            audio.play();
-            btn.textContent = "❙❙";
-            btn.setAttribute("aria-label", "배경음악 정지");
+            start().catch(function () {});
           } else {
             audio.pause();
-            btn.textContent = "♪";
-            btn.setAttribute("aria-label", "배경음악 재생");
           }
         });
       })();
