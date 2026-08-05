@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- charset은 반드시 다른 meta보다 먼저 — og 태그의 한글이 깨지지 않게 -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>현진 ♥ 지수 피로연 · 남원</title>
+
+    <!-- 카카오톡 · SNS 공유 카드 -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="안현진 ♥ 김지수 피로연에 초대합니다" />
+    <meta
+      property="og:description"
+      content="2026.10.03 토요일 오후 5:00~7:30 · 남원 참좋은 웨딩컨벤션 3층"
+    />
+    <meta
+      property="og:url"
+      content="https://ahnhyeon-jin.github.io/wedding_invitation/reception-chunhyang.html"
+    />
+    <meta
+      property="og:image"
+      content="https://ahnhyeon-jin.github.io/wedding_invitation/images/share.jpg"
+    />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="1067" />
+
+    <!-- 고운바탕: 전통 서체 느낌의 명조 계열 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --hanji: #f2e8d5; /* 한지 바탕 */
+        --hanji-deep: #e8dbc0; /* 한지 그늘 */
+        --ink: #3a3226; /* 먹색 */
+        --ink-soft: #7a6e5d; /* 엷은 먹 */
+        --dancheong-red: #a83232; /* 단청 적 */
+        --dancheong-blue: #2e5c76; /* 단청 청 */
+        --gold: #b8974a; /* 금박 */
+      }
+
+      body {
+        margin: 0;
+        font-family: "Gowun Batang", "Noto Serif KR", serif;
+        color: var(--ink);
+        text-align: center;
+        line-height: 1.9;
+
+        /* 한지 결: 웜톤 바탕 + SVG 노이즈로 섬유질 표현 */
+        background-color: var(--hanji);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+      }
+
+      .section {
+        padding: 48px 24px;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      /* ── 히어로 ───────────────────────────────── */
+      .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        color: #fdf8ec;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        /* 세피아로 톤을 눌러 한지 배경과 붙게 함 */
+        background: url("images/피로연1.jpg") center/cover no-repeat;
+        filter: sepia(0.45) contrast(1.05) brightness(0.92);
+        z-index: 0;
+      }
+
+      /* 위아래로 먹빛을 깔아 글씨가 사진 위에서 읽히게 */
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(40, 30, 18, 0.55),
+          rgba(40, 30, 18, 0.3) 45%,
+          rgba(40, 30, 18, 0.65)
+        );
+        z-index: 1;
+      }
+
+      .hero > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* 세로로 쓴 백년해로 — 장식용 */
+      .vertical {
+        position: absolute;
+        top: 8vh;
+        right: 26px;
+        writing-mode: vertical-rl;
+        font-size: 15px;
+        letter-spacing: 10px;
+        color: rgba(253, 248, 236, 0.75);
+        z-index: 2;
+      }
+
+      /* 붉은 도장 — 囍(쌍희자), 혼례에 쓰는 글자 */
+      .seal {
+        width: 62px;
+        height: 62px;
+        line-height: 62px;
+        margin: 0 auto 26px;
+        border: 2px solid var(--dancheong-red);
+        border-radius: 6px;
+        background: rgba(168, 50, 50, 0.88);
+        color: #fdf8ec;
+        font-size: 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+      }
+
+      .hero-place {
+        font-size: 13px;
+        letter-spacing: 8px;
+        margin-bottom: 18px;
+        opacity: 0.85;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+        font-weight: 700;
+        margin: 0 0 18px;
+        letter-spacing: 2px;
+      }
+
+      .hero .when {
+        font-size: 17px;
+        margin: 4px 0;
+      }
+
+      .hero .where {
+        font-size: 15px;
+        opacity: 0.9;
+        margin-top: 10px;
+      }
+
+      /* ── 창호 문살 구분선 ──────────────────────── */
+      .divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        height: 7px;
+        /* 창호지 문살 격자 */
+        background-image: repeating-linear-gradient(
+          to right,
+          var(--gold) 0 1px,
+          transparent 1px 13px
+        );
+        opacity: 0.55;
+      }
+
+      .divider span {
+        width: 9px;
+        height: 9px;
+        background: var(--dancheong-red);
+        transform: rotate(45deg);
+        opacity: 0.8;
+      }
+
+      /* ── 본문 ─────────────────────────────────── */
+      h2 {
+        font-size: 19px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 6px;
+      }
+
+      /* 소제목 아래 단청 이중선 */
+      h2::after {
+        content: "";
+        display: block;
+        width: 42px;
+        height: 3px;
+        margin: 12px auto 22px;
+        background: linear-gradient(
+          to right,
+          var(--dancheong-red) 0 33%,
+          var(--gold) 33% 66%,
+          var(--dancheong-blue) 66% 100%
+        );
+      }
+
+      p {
+        margin: 8px 0;
+      }
+
+      /* 고전 인용 — 춘향전 대목 */
+      .verse {
+        font-size: 15px;
+        color: var(--ink-soft);
+        font-style: italic;
+        line-height: 2.1;
+        margin-bottom: 26px;
+      }
+
+      .verse::before {
+        content: "「";
+      }
+
+      .verse::after {
+        content: "」";
+      }
+
+      .note {
+        font-size: 14px;
+        color: var(--ink-soft);
+      }
+
+      /* 혼주 표기 */
+      .host {
+        margin-top: 30px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(184, 151, 74, 0.4);
+        font-size: 16px;
+      }
+
+      .host strong {
+        font-size: 18px;
+      }
+
+      /* 한지 카드 — 안내문·계좌 */
+      .card {
+        padding: 20px;
+        margin-top: 14px;
+        background: var(--hanji-deep);
+        border: 1px solid rgba(184, 151, 74, 0.5);
+        /* 모서리를 접은 서첩 느낌 */
+        box-shadow: inset 0 0 0 4px rgba(242, 232, 213, 0.6);
+      }
+
+      .card p {
+        margin: 5px 0;
+        font-size: 15px;
+      }
+
+      /* 꼭 읽어야 하는 안내 (음식 철수 시간) */
+      .notice {
+        display: inline-block;
+        padding: 16px 20px;
+        margin-top: 8px;
+        background: rgba(168, 50, 50, 0.07);
+        border-top: 2px solid var(--dancheong-red);
+        border-bottom: 2px solid var(--dancheong-red);
+        font-size: 15px;
+      }
+
+      .big {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      /* ── 지도 · 갤러리 ────────────────────────── */
+      .map {
+        width: 100%;
+        height: 210px;
+        border: 0;
+        display: block;
+        /* 한지 액자 */
+        outline: 1px solid rgba(184, 151, 74, 0.6);
+        outline-offset: 6px;
+      }
+
+      .map-frame {
+        padding: 6px;
+        margin-bottom: 26px;
+      }
+
+      .gallery img {
+        width: 100%;
+        margin-bottom: 16px;
+        filter: sepia(0.35) contrast(1.03);
+        outline: 1px solid rgba(184, 151, 74, 0.6);
+        outline-offset: 5px;
+      }
+
+      /* ── 버튼 ─────────────────────────────────── */
+      .btn {
+        display: inline-block;
+        padding: 13px 24px;
+        margin-top: 12px;
+        background: transparent;
+        border: 1px solid var(--dancheong-red);
+        color: var(--dancheong-red);
+        border-radius: 2px;
+        text-decoration: none;
+        font-size: 15px;
+        letter-spacing: 2px;
+      }
+
+      .footer {
+        font-size: 14px;
+        color: var(--ink-soft);
+        padding-bottom: 56px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 메인 -->
+    <div class="hero">
+      <div class="vertical">百年偕老</div>
+
+      <div class="seal">囍</div>
+      <div class="hero-place">南 原</div>
+      <h1>안현진 ♥ 김지수</h1>
+      <div class="when">2026년 10월 3일 토요일</div>
+      <div class="when">오후 5시</div>
+      <div class="where">참좋은 웨딩컨벤션 3층</div>
+    </div>
+
+    <!-- 인사말 -->
+    <div class="section">
+      <p class="verse">
+        광한루 오작교 위에서<br />
+        춘향과 몽룡이 백년의 언약을 맺었다 하지요
+      </p>
+
+      <p>
+        그 고을 남원에서, 저희 차녀 지수가 안현진 군과 같은 언약을 맺습니다.
+        서울에서 예식을 올리기에 앞서 그동안 저희 가족을 아껴 주신 분들을 모시고
+        조촐한 자리를 마련했습니다. 귀한 걸음으로 오셔서 두 사람의 앞날을 축복해
+        주시면 더없는 기쁨으로 간직하겠습니다.
+      </p>
+
+      <div class="host">
+        <p>최동춘 · 양인숙 의 차녀 <strong>지수</strong></p>
+      </div>
+    </div>
+
+    <div class="divider"><span></span></div>
+
+    <!-- 피로연 안내 -->
+    <div class="section">
+      <h2>피로연 안내</h2>
+      <p class="big">2026년 10월 3일 토요일</p>
+      <p class="big">오후 5:00 ~ 7:30</p>
+      <p style="margin-top: 18px">
+        남원 참좋은 웨딩컨벤션 3층 연회장<br />
+        <span class="note">전북 남원시 충정로 336</span>
+      </p>
+
+      <p class="note" style="margin-top: 22px">
+        정해진 순서 없이 편하게 오셔서<br />
+        식사 나누시는 자리로 준비했습니다.
+      </p>
+
+      <p class="notice">
+        음식은 <strong>오후 7시</strong>까지 준비되어 있습니다.<br />
+        식사하실 분은 7시 이전에 오시면 좋겠습니다.
+      </p>
+    </div>
+
+    <div class="divider"><span></span></div>
+
+    <!-- 본식 안내 -->
+    <div class="section">
+      <h2>본식 안내</h2>
+      <p>2026년 10월 11일 일요일 오전 10시 40분</p>
+      <p>더링크서울 트리뷰트 포트폴리오 호텔 웨딩</p>
+      <a class="btn" href="./invitation.html">본식 청첩장 보기</a>
+    </div>
+
+    <div class="divider"><span></span></div>
+
+    <!-- 오시는 길 -->
+    <div class="section">
+      <h2>오시는 길</h2>
+
+      <p>
+        남원 참좋은 웨딩컨벤션 3층 연회장<br />
+        <span class="note">전북 남원시 충정로 336</span>
+      </p>
+
+      <div class="map-frame">
+        <iframe
+          class="map"
+          src="https://maps.google.com/maps?q=전북 남원시 충정로 336&t=&z=16&ie=UTF8&iwloc=&output=embed"
+        >
+        </iframe>
+      </div>
+
+      <!-- naver.me 단축 링크로 교체하면 앱 연동이 더 자연스러움 -->
+      <a
+        class="btn"
+        href="https://map.naver.com/p/search/남원 참좋은 웨딩컨벤션"
+        target="_blank"
+      >
+        네이버 지도에서 보기
+      </a>
+
+      <p class="note" style="margin-top: 18px">
+        주차 안내는 확정 후 업데이트하겠습니다.
+      </p>
+    </div>
+
+    <div class="divider"><span></span></div>
+
+    <!-- 갤러리 -->
+    <div class="section gallery">
+      <h2>사진</h2>
+      <img src="images/피로연2.jpg" alt="피로연 사진" />
+      <img src="images/피로연3.jpg" alt="피로연 사진" />
+    </div>
+
+    <div class="divider"><span></span></div>
+
+    <!-- 연락처 -->
+    <div class="section">
+      <h2>연락처</h2>
+      <p>신랑 안현진 · 010-7160-4636</p>
+      <p>신부 김지수 · 010-7557-7871</p>
+    </div>
+
+    <!-- 마음 전하실 곳 -->
+    <div class="section">
+      <h2>마음 전하실 곳</h2>
+      <p class="note">축하의 마음을 전하고 싶으신 분들을 위해 안내드립니다.</p>
+
+      <!-- 계좌번호 자리표시자 — 실제 번호로 교체 필요 -->
+      <div class="card">
+        <p><strong>혼주 최동춘</strong></p>
+        <p>국민은행 092-10204110201</p>
+      </div>
+
+      <div class="card">
+        <p><strong>혼주 양인숙</strong></p>
+        <p>국민은행 092-10204110201</p>
+      </div>
+    </div>
+
+    <!-- 푸터 -->
+    <div class="section footer">
+      <div class="divider" style="margin-bottom: 26px"><span></span></div>
+      <p>귀한 시간 내어 함께해 주셔서 감사합니다</p>
+    </div>
+  </body>
+</html>
