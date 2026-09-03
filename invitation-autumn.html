@@ -1094,7 +1094,6 @@
           ]);
           fs = fsMod;
           const app = appMod.initializeApp(FIREBASE_CONFIG);
-          db = fs.getFirestore(app);
 
           /*
             익명 로그인. 하객에게는 로그인 화면이 보이지 않고 브라우저마다
@@ -1102,9 +1101,15 @@
             '작성자 본인인지'를 서버에서 직접 확인할 수 있다.
             비밀번호 방식은 삭제 요청에 본문이 없어 규칙이 검증할 수 없고,
             결국 클라이언트 검사에 그쳐 누구나 남의 글을 지울 수 있다.
+
+            순서가 중요하다. getFirestore()를 먼저 만들면 인증 모듈이 아직
+            등록되지 않아 요청에 토큰이 실리지 않을 수 있다. 그러면 읽기는
+            (규칙이 인증을 요구하지 않으므로) 되는데 쓰기만 조용히 거부된다.
           */
           const cred = await authMod.signInAnonymously(authMod.getAuth(app));
           uid = cred.user.uid;
+
+          db = fs.getFirestore(app);
         } catch (e) {
           // SDK를 못 받아와도 나머지 페이지는 그대로 동작해야 한다
           console.error("방명록 초기화 실패", e);
@@ -1217,8 +1222,10 @@
             msgEl.textContent = "메시지를 남겼습니다. 감사합니다.";
             await load();
           } catch (err) {
+            // 원인 파악용으로 오류 코드를 화면에 함께 노출한다
             console.error(err);
-            msgEl.textContent = "저장에 실패했습니다. 잠시 후 다시 시도해 주세요.";
+            msgEl.textContent =
+              "저장에 실패했습니다. [" + (err && err.code ? err.code : err) + "]";
           } finally {
             submitEl.disabled = false;
           }
