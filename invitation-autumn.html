@@ -39,7 +39,7 @@
         채도를 낮게 유지해 사진보다 배경이 튀지 않게 한다.
       */
       :root {
-        --bg: #faf6ef; /* 웜 아이보리 */
+        --bg: #f9f4e9; /* 웜 아이보리 — 기본 버전보다 한 톤 깊게 */
         --ink: #3a332a; /* 갈색 기운의 먹색 */
         --ink-soft: #8b7d69;
         --line: #e7ddcc;
@@ -60,23 +60,29 @@
         -webkit-text-size-adjust: 100%;
 
         /*
-          가을 햇빛처럼 위아래에만 아주 옅은 온기를 깔고, 그 위에 종이 결을
-          얹는다. attachment: fixed라 스크롤해도 번짐이 따라오지 않고
-          화면에 고정돼 은은하게만 남는다.
+          배경 네 겹. 위에서부터 종이 결 → 낙엽 무늬 → 웜톤 번짐 두 개.
+          사진에는 어떤 영향도 없고 페이지 바탕에만 깔린다.
+
+          낙엽과 종이 결은 scroll — 무늬가 있는 종이 위에 인쇄한 느낌.
+          번짐은 fixed — 스크롤을 따라오지 않아 화면 가장자리 온기로만 남는다.
         */
         background-color: var(--bg);
-        background-image: radial-gradient(
-            120% 55% at 50% 0%,
-            rgba(169, 116, 79, 0.08),
-            transparent 65%
-          ),
-          radial-gradient(
-            110% 45% at 15% 100%,
-            rgba(125, 122, 79, 0.07),
-            transparent 65%
-          ),
-          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
-        background-attachment: fixed, fixed, scroll;
+        background-image: /* 종이 결 */ url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
+          /* 낙엽 무늬 — 320px 타일에 잎 네 장, stroke-opacity로 흐리게 */
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cg fill='none' stroke='%23a9744f' stroke-opacity='0.15' stroke-width='1.2' stroke-linecap='round'%3E%3Cg transform='translate(50 38) rotate(-18)'%3E%3Cpath d='M0 0C-13 11-14 28 0 40C14 28 13 11 0 0Z'/%3E%3Cpath d='M0 5V35' stroke-width='0.9'/%3E%3C/g%3E%3Cg transform='translate(232 98) rotate(34)'%3E%3Cpath d='M0 0C-10 8-11 21 0 30C11 21 10 8 0 0Z'/%3E%3Cpath d='M0 4V26' stroke-width='0.9'/%3E%3C/g%3E%3Cg transform='translate(118 212) rotate(-58)'%3E%3Cpath d='M0 0C-15 12-16 32 0 46C16 32 15 12 0 0Z'/%3E%3Cpath d='M0 6V40' stroke-width='0.9'/%3E%3C/g%3E%3Cg transform='translate(274 252) rotate(12)'%3E%3Cpath d='M0 0C-9 7-10 19 0 27C10 19 9 7 0 0Z'/%3E%3Cpath d='M0 4V23' stroke-width='0.9'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+          /* 위쪽 단풍색 번짐 */
+            radial-gradient(
+              125% 55% at 50% 0%,
+              rgba(169, 116, 79, 0.13),
+              transparent 65%
+            ),
+          /* 아래쪽 마른 잎 올리브 번짐 */
+            radial-gradient(
+              115% 50% at 12% 100%,
+              rgba(125, 122, 79, 0.1),
+              transparent 65%
+            );
+        background-attachment: scroll, scroll, fixed, fixed;
       }
 
       .section {
@@ -114,21 +120,19 @@
 
       /*
         아래쪽만 어둡게 깔아 글씨를 앉힘 — 인물 얼굴은 가리지 않음.
-        가을 버전은 그 위에 옅은 웜톤 막을 한 겹 더 얹어 사진 파일을
-        건드리지 않고 색감만 따뜻하게 옮긴다.
+        사진 색감은 건드리지 않는다(웜톤 막 없음). 가을 느낌은 배경에서만.
       */
       .hero::after {
         content: "";
         position: absolute;
         inset: 0;
         background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.12) 0%,
-            rgba(0, 0, 0, 0) 35%,
-            rgba(30, 21, 13, 0.55) 78%,
-            rgba(30, 21, 13, 0.8) 100%
-          ),
-          linear-gradient(rgba(152, 96, 48, 0.12), rgba(152, 96, 48, 0.12));
+          to bottom,
+          rgba(0, 0, 0, 0.12) 0%,
+          rgba(0, 0, 0, 0) 35%,
+          rgba(20, 18, 15, 0.55) 78%,
+          rgba(20, 18, 15, 0.78) 100%
+        );
         z-index: 1;
       }
 
