@@ -510,6 +510,24 @@
         white-space: pre-wrap;
         overflow-wrap: anywhere;
       }
+
+      /* 내가 쓴 글에만 붙는 삭제 버튼 */
+      .gb-del {
+        margin-top: 6px;
+        padding: 4px 10px;
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--ink-soft);
+        font-family: inherit;
+        font-size: 12px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .gb-del[disabled] {
+        opacity: 0.5;
+        cursor: default;
+      }
       /* ── 마무리 ───────────────────────────────── */
       /* 갤러리와 같은 폭으로 묶어 원본 비율대로 보이게 한다.
          폭 제한이 없으면 넓은 화면에서 원본보다 크게 늘어난다. */
@@ -1027,14 +1045,26 @@
       }
 
       async function start() {
-        let fs, db;
+        let fs, db, uid;
         try {
-          const [appMod, fsMod] = await Promise.all([
+          const [appMod, fsMod, authMod] = await Promise.all([
             import(SDK + "firebase-app.js"),
             import(SDK + "firebase-firestore.js"),
+            import(SDK + "firebase-auth.js"),
           ]);
           fs = fsMod;
-          db = fs.getFirestore(appMod.initializeApp(FIREBASE_CONFIG));
+          const app = appMod.initializeApp(FIREBASE_CONFIG);
+          db = fs.getFirestore(app);
+
+          /*
+            익명 로그인. 하객에게는 로그인 화면이 보이지 않고 브라우저마다
+            고유 uid가 발급된다. 이 uid를 글에 함께 저장해 두면 보안 규칙이
+            '작성자 본인인지'를 서버에서 직접 확인할 수 있다.
+            비밀번호 방식은 삭제 요청에 본문이 없어 규칙이 검증할 수 없고,
+            결국 클라이언트 검사에 그쳐 누구나 남의 글을 지울 수 있다.
+          */
+          const cred = await authMod.signInAnonymously(authMod.getAuth(app));
+          uid = cred.user.uid;
         } catch (e) {
           // SDK를 못 받아와도 나머지 페이지는 그대로 동작해야 한다
           console.error("방명록 초기화 실패", e);
@@ -1089,6 +1119,29 @@
               '</span></div><div class="gb-text">' +
               esc(d.message) +
               "</div>";
+
+            // 내가 쓴 글에만 삭제 버튼. 실제 권한은 보안 규칙이 판단하므로
+            // 버튼을 숨기는 것은 어디까지나 화면 정리 목적이다.
+            if (d.uid && d.uid === uid) {
+              const del = document.createElement("button");
+              del.className = "gb-del";
+              del.type = "button";
+              del.textContent = "삭제";
+              del.addEventListener("click", async () => {
+                if (!confirm("이 메시지를 삭제할까요?")) return;
+                del.disabled = true;
+                try {
+                  await fs.deleteDoc(fs.doc(db, "guestbook", doc.id));
+                  await load();
+                } catch (err) {
+                  console.error(err);
+                  msgEl.textContent = "삭제에 실패했습니다.";
+                  del.disabled = false;
+                }
+              });
+              el.appendChild(del);
+            }
+
             listEl.appendChild(el);
           }
 
@@ -1113,10 +1166,11 @@
           submitEl.disabled = true;
           msgEl.textContent = "";
           try {
-            // 보안 규칙이 이 세 필드만 허용하므로 그대로 맞춘다
+            // 보안 규칙이 이 네 필드만 허용하므로 그대로 맞춘다
             await fs.addDoc(col, {
               name: name,
               message: message,
+              uid: uid,
               createdAt: fs.serverTimestamp(),
             });
             form.reset();
