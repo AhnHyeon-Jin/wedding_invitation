@@ -4,222 +4,864 @@
     <!-- charset은 반드시 다른 meta보다 먼저 — og 태그의 한글이 깨지지 않게 -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>현진 ♥ 지수</title>
+    <title>현진 ♥ 지수 결혼합니다</title>
+
+    <!-- 계좌·연락처가 검색에 노출될 이유가 없음 -->
+    <meta name="robots" content="noindex, nofollow" />
 
     <!-- 카카오톡 · SNS 공유 카드 -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="안현진 ♥ 김지수 결혼합니다" />
+    <meta property="og:title" content="현진 ♥ 지수 결혼합니다" />
     <meta
       property="og:description"
-      content="2026.10.11 일요일 오전 10시 40분 · 더링크호텔 서울 링크홀(2F)"
+      content="2026.10.11 일요일 오전 10시 40분 · 더링크서울 트리뷰트 포트폴리오 호텔 웨딩 2F"
     />
     <meta
       property="og:url"
       content="https://ahnhyeon-jin.github.io/wedding_invitation/invitation.html"
     />
+    <!-- 가로 이미지여야 카톡에서 큰 카드로 뜸 (images/wedding/1.jpeg 복사본) -->
     <meta
       property="og:image"
-      content="https://ahnhyeon-jin.github.io/wedding_invitation/images/1.jpg"
+      content="https://ahnhyeon-jin.github.io/wedding_invitation/images/wedding/share.jpg"
     />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="1600" />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="1143" />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:wght@300;400&display=swap"
       rel="stylesheet"
     />
     <style>
+      :root {
+        --bg: #fbfaf8;
+        --ink: #33302c;
+        --ink-soft: #8a8378;
+        --line: #e8e4dd;
+        --accent: #a99a83;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
-        font-family: "Noto Serif KR", serif;
-        background: #fafafa;
-        color: #333;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Gowun Batang", serif;
+        line-height: 2;
         text-align: center;
+        -webkit-text-size-adjust: 100%;
       }
 
       .section {
-        padding: 40px 20px;
-        max-width: 500px; /* ← 전체 폭 제한 */
+        max-width: 460px;
         margin: 0 auto;
+        padding: 56px 24px;
       }
 
+      /* 라틴 숫자는 세리프 계열로 따로 — 날짜가 훨씬 정돈돼 보임 */
+      .latin {
+        font-family: "Cormorant Garamond", serif;
+        letter-spacing: 2px;
+      }
+
+      /* ── 히어로 ───────────────────────────────── */
       .hero {
         position: relative;
-        height: 100vh;
+        min-height: 100svh;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        color: white;
-        text-align: center;
+        justify-content: flex-end;
+        align-items: center;
+        padding-bottom: 56px;
         overflow: hidden;
+        color: #fff;
       }
 
       .hero::before {
         content: "";
         position: absolute;
         inset: 0;
-        background: url("images/2.jpg") center/contain no-repeat;
-        background-color: black; /* 빈 공간 채움 */
+        background: url("images/wedding/1.jpeg") center / cover no-repeat;
         z-index: 0;
       }
 
+      /* 아래쪽만 어둡게 깔아 글씨를 앉힘 — 인물 얼굴은 가리지 않음 */
       .hero::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: rgba(0, 0, 0, 0.4);
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.12) 0%,
+          rgba(0, 0, 0, 0) 35%,
+          rgba(20, 18, 15, 0.55) 78%,
+          rgba(20, 18, 15, 0.78) 100%
+        );
         z-index: 1;
       }
 
-      .hero * {
+      .hero > * {
         position: relative;
         z-index: 2;
       }
 
-      h1 {
-        font-size: 28px;
-        margin-bottom: 10px;
+      .hero .label {
+        font-size: 12px;
+        letter-spacing: 7px;
+        opacity: 0.85;
+        margin-bottom: 18px;
       }
 
-      .date {
-        font-size: 18px;
+      .hero h1 {
+        font-size: 32px;
+        font-weight: 400;
+        letter-spacing: 6px;
+        margin: 0 0 20px;
       }
 
-      .divider {
-        width: 50px;
-        height: 2px;
-        background: #ccc;
-        margin: 20px auto;
+      .hero .when {
+        font-size: 17px;
+        letter-spacing: 3px;
+        margin: 0;
+      }
+
+      .hero .where {
+        font-size: 14px;
+        opacity: 0.9;
+        margin: 8px 0 0;
+      }
+
+      /* ── 공통 ─────────────────────────────────── */
+      h2 {
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 6px;
+        color: var(--accent);
+        margin: 0 0 32px;
+      }
+
+      p {
+        margin: 6px 0;
+      }
+
+      .note {
+        font-size: 14px;
+        color: var(--ink-soft);
+      }
+
+      .rule {
+        width: 1px;
+        height: 46px;
+        background: var(--line);
+        margin: 0 auto;
+      }
+
+      /* 인사말 */
+      .greeting {
+        font-size: 16px;
+        line-height: 2.4;
+      }
+
+      /* 양가 혼주 */
+      .parents {
+        margin-top: 38px;
+        padding-top: 30px;
+        border-top: 1px solid var(--line);
+        font-size: 15px;
+        line-height: 2.6;
+      }
+
+      .parents .of {
+        color: var(--ink-soft);
+        font-size: 13px;
+        margin: 0 6px;
+      }
+
+      /* ── 예식 안내 · 캘린더 ───────────────────── */
+      .big-date {
+        font-size: 30px;
+        margin: 0 0 4px;
+      }
+
+      .cal {
+        width: 100%;
+        max-width: 320px;
+        margin: 28px auto 0;
+        border-collapse: collapse;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 16px;
+      }
+
+      .cal th {
+        font-weight: 400;
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: var(--ink-soft);
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .cal td {
+        padding: 9px 0;
+        color: var(--ink);
+      }
+
+      .cal .sun {
+        color: #b98b8b;
+      }
+
+      /* 예식일 */
+      .cal .day-mark {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .dday {
+        margin-top: 26px;
+        font-size: 15px;
+        color: var(--ink-soft);
+      }
+
+      .dday strong {
+        color: var(--accent);
+        font-weight: 400;
+      }
+
+      /* ── 갤러리 ───────────────────────────────── */
+      /* 한 줄에 한 장. 원본 비율 그대로 두어 잘리는 곳이 없게 한다. */
+      .gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 460px;
+        margin: 0 auto;
+        padding: 0 0 56px;
       }
 
       .gallery img {
         width: 100%;
-        border-radius: 12px;
-        margin-bottom: 10px;
-      }
-
-      .map {
-        width: 90%;
-        height: 200px;
-        border-radius: 16px;
-        margin: 0 auto;
+        height: auto;
         display: block;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* ← 그림자 */
       }
 
-      .footer {
-        font-size: 14px;
-        color: #777;
+      /* ── 오시는 길 ────────────────────────────── */
+      .map {
+        width: 100%;
+        height: 220px;
+        border: 0;
+        display: block;
+        margin-bottom: 18px;
       }
 
-      /* 계좌 안내 */
-      .account-box {
-        padding: 16px;
-        margin-top: 14px;
-        background: #fff;
-        border: 1px solid #eee;
-        border-radius: 12px;
-      }
-
-      .account-box p {
-        margin: 6px 0;
-        font-size: 15px;
+      .btn-row {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        flex-wrap: wrap;
       }
 
       .btn {
         display: inline-block;
-        padding: 12px 20px;
-        margin-top: 10px;
-        background: #333;
-        color: white;
-        border-radius: 8px;
+        padding: 11px 18px;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--ink);
+        border-radius: 3px;
         text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 1px;
+        font-family: inherit;
+        cursor: pointer;
+      }
+
+      .info-list {
+        margin-top: 26px;
+        text-align: left;
+        font-size: 14px;
+        line-height: 2.2;
+      }
+
+      .info-list dt {
+        color: var(--accent);
+        font-size: 12px;
+        letter-spacing: 2px;
+        margin-top: 14px;
+      }
+
+      .info-list dd {
+        margin: 0;
+        color: var(--ink);
+      }
+
+      /* ── 연락처 ───────────────────────────────── */
+      .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .contact-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        background: #fff;
+        border: 1px solid var(--line);
+      }
+
+      .contact-row .who {
+        font-size: 15px;
+      }
+
+      .contact-row .acts {
+        display: flex;
+        gap: 8px;
+      }
+
+      .icon-btn {
+        width: 38px;
+        height: 38px;
+        line-height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        text-decoration: none;
+        color: var(--accent);
+        font-size: 15px;
+      }
+
+      /* ── 계좌 ─────────────────────────────────── */
+      .acct-group {
+        margin-bottom: 10px;
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+
+      /* 접기/펼치기 머리 — JS 없이 details/summary로 처리 */
+      .acct-group > summary {
+        list-style: none; /* 기본 삼각형 제거 */
+        cursor: pointer;
+        padding: 15px 16px;
+        font-size: 14px;
+        letter-spacing: 3px;
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .acct-group > summary::-webkit-details-marker {
+        display: none; /* 사파리 기본 삼각형 */
+      }
+
+      /* 직접 그린 화살표 — 펼치면 뒤집힌다 */
+      .acct-group > summary::after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-right: 1px solid var(--accent);
+        border-bottom: 1px solid var(--accent);
+        transform: translateY(-2px) rotate(45deg);
+        transition: transform 0.2s;
+      }
+
+      .acct-group[open] > summary::after {
+        transform: translateY(1px) rotate(-135deg);
+      }
+
+      .acct {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 16px;
+        border-top: 1px solid var(--line);
+        text-align: left;
+      }
+
+      .acct .who {
+        font-size: 13px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+
+      .acct .num {
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .copy {
+        flex: 0 0 auto;
+        padding: 7px 12px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        border: 1px solid var(--line);
+        background: var(--bg);
+        color: var(--ink-soft);
+        border-radius: 3px;
+        font-family: inherit;
+        cursor: pointer;
+      }
+
+      /* ── 마무리 ───────────────────────────────── */
+      /* 갤러리와 같은 폭으로 묶어 원본 비율대로 보이게 한다.
+         폭 제한이 없으면 넓은 화면에서 원본보다 크게 늘어난다. */
+      .closing {
+        max-width: 460px;
+        margin: 0 auto;
+      }
+
+      .closing img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .footer {
+        font-size: 14px;
+        color: var(--ink-soft);
+        padding: 48px 24px 64px;
+      }
+
+      /* ── 배경음악 버튼 ────────────────────────── */
+      #bgm-toggle {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 50;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 0;
+        background: rgba(255, 255, 255, 0.75);
+        color: var(--ink);
+        font-size: 15px;
+        cursor: pointer;
+        backdrop-filter: blur(4px);
       }
     </style>
   </head>
   <body>
+    <!--
+      배경음악. 처음부터 재생하고 끝나면 반복한다. 시작 지점은 하단
+      스크립트의 START 값으로 조절. 재생을 시작하는 방식도 그쪽 참고
+      (자동재생 시도 → 차단되면 첫 화면 터치). 버튼은 정지/재생용.
+    -->
+    <audio id="bgm" src="audio/bgm.mp3" preload="metadata"></audio>
+    <button id="bgm-toggle" aria-label="배경음악 재생">♪</button>
+
     <!-- 메인 -->
     <div class="hero">
-      <h1>안현진 ♥ 김지수</h1>
-      <div class="date">2026.10.11 일요일 오전 10시 40분</div>
+      <div class="label">WE ARE GETTING MARRIED</div>
+      <h1>현진 &nbsp;♥&nbsp; 지수</h1>
+      <p class="when latin">2026 . 10 . 11 &nbsp;SUN&nbsp; AM 10:40</p>
+      <p class="where">더링크서울 트리뷰트 포트폴리오 호텔 웨딩 2F</p>
     </div>
 
     <!-- 인사말 -->
     <div class="section">
-      <p>
-        서로가 마주보며 다져온 사랑을 이제 함께 한 길로 걸어가고자 합니다. 귀한
-        걸음으로 축복해 주시면 더없는 기쁨으로 간직하겠습니다.
+      <h2>INVITATION</h2>
+      <p class="greeting">
+        오랜 기다림 속에서 저희 두 사람,<br />
+        한마음 되어 사랑의 결실을 맺습니다.<br />
+        오셔서 축복해 주시면 큰 기쁨이겠습니다.
       </p>
+
+      <div class="parents">
+        <p>
+          안재민 · 이민영 <span class="of">의 장남</span> <strong>현진</strong>
+        </p>
+        <p>
+          최동춘 · 양인숙 <span class="of">의 차녀</span> <strong>지수</strong>
+        </p>
+      </div>
     </div>
 
-    <div class="divider"></div>
+    <div class="rule"></div>
 
-    <!-- 정보 -->
+    <!-- 예식 안내 -->
     <div class="section">
-      <h2>예식 안내</h2>
-      <p>2026년 10월 11일 일요일 오전 10시 40분</p>
-      <p>더링크호텔 서울 · 링크홀(2F)</p>
-      <p>서울 구로구 경인로 610</p>
+      <h2>THE WEDDING DAY</h2>
+      <p class="big-date latin">2026 . 10 . 11</p>
+      <p>일요일 오전 10시 40분</p>
+
+      <!-- 2026년 10월 (10월 1일 = 목요일) -->
+      <table class="cal">
+        <thead>
+          <tr>
+            <th class="sun">SUN</th>
+            <th>MON</th>
+            <th>TUE</th>
+            <th>WED</th>
+            <th>THU</th>
+            <th>FRI</th>
+            <th>SAT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td class="sun">4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td><span class="day-mark">11</span></td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+          </tr>
+          <tr>
+            <td class="sun">18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td class="sun">25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="dday" id="dday"></p>
     </div>
 
-    <div class="divider"></div>
-
-    <!-- 지도 -->
-    <div class="section">
-      <h2>오시는 길</h2>
-
-      <!-- 구글 지도 (미리보기용) -->
-      <iframe
-        class="map"
-        src="https://maps.google.com/maps?q=서울 구로구 경인로 610&t=&z=16&ie=UTF8&iwloc=&output=embed"
-      >
-      </iframe>
-
-      <br />
-
-      <!-- 네이버 지도 (앱 이동용) -->
-      <a class="btn" href="https://naver.me/FqWtKQUF" target="_blank">
-        네이버 지도에서 보기
-      </a>
-    </div>
-
-    <div class="divider"></div>
+    <div class="rule"></div>
 
     <!-- 갤러리 -->
-    <div class="section gallery">
-      <h2>Gallery</h2>
-      <img src="images/1.jpg" alt="웨딩 사진" />
+    <div class="section" style="padding-bottom: 24px">
+      <h2>GALLERY</h2>
     </div>
 
-    <div class="divider"></div>
+    <div class="gallery">
+      <!--
+        1번은 히어로, 18번은 마무리에 쓰므로 갤러리는 2~17번.
+        width/height는 원본 비율 — lazy 로딩 중 높이가 0이 되어 스크롤이
+        튀는 것을 막기 위해 명시한다. 실제 크기는 CSS가 결정.
+      -->
+      <img src="images/wedding/2.jpeg" alt="웨딩 사진" width="1600" height="1143" loading="lazy" />
+      <img src="images/wedding/3.jpeg" alt="신부 사진" width="1600" height="1143" loading="lazy" />
+      <img src="images/wedding/4.jpeg" alt="신랑 사진" width="1143" height="1600" loading="lazy" />
+      <img src="images/wedding/5.jpeg" alt="웨딩 사진" width="1600" height="1143" loading="lazy" />
+      <img src="images/wedding/6.jpeg" alt="웨딩 사진" width="1143" height="1600" loading="lazy" />
+      <img src="images/wedding/7.jpeg" alt="웨딩 사진" width="1600" height="1143" loading="lazy" />
+      <img src="images/wedding/8.jpeg" alt="웨딩 사진" width="1143" height="1600" loading="lazy" />
+      <img src="images/wedding/9.jpeg" alt="신랑 사진" width="1143" height="1600" loading="lazy" />
+      <img src="images/wedding/10.jpeg" alt="신부 사진" width="1143" height="1600" loading="lazy" />
+      <img src="images/wedding/11.jpeg" alt="웨딩 사진" width="1143" height="1600" loading="lazy" />
+      <img src="images/wedding/12.jpeg" alt="웨딩 사진" width="1143" height="1600" loading="lazy" />
+      <img src="images/wedding/13.jpeg" alt="신부 사진" width="1143" height="1600" loading="lazy" />
+      <img src="images/wedding/14.jpeg" alt="신부 사진" width="1143" height="1600" loading="lazy" />
+      <img src="images/wedding/15.jpeg" alt="웨딩 사진" width="1143" height="1600" loading="lazy" />
+      <img src="images/wedding/16.jpeg" alt="웨딩 사진" width="1600" height="1143" loading="lazy" />
+      <img src="images/wedding/17.jpeg" alt="한복 입은 신랑 신부" width="1143" height="1600" loading="lazy" />
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- 오시는 길 -->
+    <div class="section">
+      <h2>LOCATION</h2>
+      <p>더링크서울 트리뷰트 포트폴리오 호텔 웨딩 2F</p>
+      <p class="note">서울 구로구 경인로 610</p>
+
+      <iframe
+        class="map"
+        style="margin-top: 22px"
+        src="https://maps.google.com/maps?q=서울 구로구 경인로 610&t=&z=16&ie=UTF8&iwloc=&output=embed"
+        title="예식장 지도"
+      ></iframe>
+
+      <div class="btn-row">
+        <a
+          class="btn"
+          href="https://map.naver.com/p/search/더링크서울 트리뷰트 포트폴리오 호텔"
+          target="_blank"
+          rel="noopener"
+          >네이버 지도</a
+        >
+        <a
+          class="btn"
+          href="https://map.kakao.com/link/search/서울 구로구 경인로 610"
+          target="_blank"
+          rel="noopener"
+          >카카오맵</a
+        >
+      </div>
+
+      <dl class="info-list">
+        <dt>주차</dt>
+        <dd>호텔 주차장 1시간 30분 무료</dd>
+      </dl>
+    </div>
+
+    <div class="rule"></div>
 
     <!-- 연락처 -->
     <div class="section">
-      <h2>연락처</h2>
-      <p>신랑: 010-7160-4636</p>
-      <p>신부: 010-7557-7871</p>
+      <h2>CONTACT</h2>
+      <div class="contact">
+        <div class="contact-row">
+          <span class="who">신랑 안현진</span>
+          <span class="acts">
+            <a class="icon-btn" href="tel:010-7160-4636" aria-label="신랑에게 전화">✆</a>
+            <a class="icon-btn" href="sms:010-7160-4636" aria-label="신랑에게 문자">✉</a>
+          </span>
+        </div>
+        <div class="contact-row">
+          <span class="who">신부 김지수</span>
+          <span class="acts">
+            <a class="icon-btn" href="tel:010-7557-7871" aria-label="신부에게 전화">✆</a>
+            <a class="icon-btn" href="sms:010-7557-7871" aria-label="신부에게 문자">✉</a>
+          </span>
+        </div>
+      </div>
     </div>
 
+    <div class="rule"></div>
+
+    <!-- 마음 전하실 곳 -->
     <div class="section">
-      <h2>마음 전하실 곳</h2>
+      <h2>ACCOUNT</h2>
+      <p class="note" style="margin-bottom: 28px">
+        축하의 마음을 전하고 싶으신 분들을 위해 안내드립니다.
+      </p>
 
-      <div class="account-box">
-        <p><strong>신랑측</strong></p>
-        <p>신랑 안현진 · KB국민 0921-02-0411-0201</p>
-        <p>아버지 안재민 · 하나 184-180347-06</p>
-        <p>어머니 이민영 · NH농협 352-0283-3722-23</p>
-      </div>
+      <details class="acct-group">
+        <summary>신랑측 계좌번호</summary>
+        <div class="acct">
+          <span>
+            <span class="who">신랑 안현진</span><br />
+            <span class="num">KB국민 0921-02-0411-0201</span>
+          </span>
+          <button class="copy" data-acct="09210204110201">복사</button>
+        </div>
+        <div class="acct">
+          <span>
+            <span class="who">아버지 안재민</span><br />
+            <span class="num">하나 184-180347-06</span>
+          </span>
+          <button class="copy" data-acct="18418034706">복사</button>
+        </div>
+        <div class="acct">
+          <span>
+            <span class="who">어머니 이민영</span><br />
+            <span class="num">NH농협 352-0283-3722-23</span>
+          </span>
+          <button class="copy" data-acct="3520283372223">복사</button>
+        </div>
+      </details>
 
-      <div class="account-box">
-        <p><strong>신부측</strong></p>
-        <p>신부 김지수 · 카카오뱅크 3333-12-4620464</p>
-        <p>아버지 최동춘 · NH농협 302-0113-5844-81</p>
-        <p>어머니 양인숙 · NH농협 175281-52-085291</p>
-      </div>
+      <details class="acct-group">
+        <summary>신부측 계좌번호</summary>
+        <div class="acct">
+          <span>
+            <span class="who">신부 김지수</span><br />
+            <span class="num">카카오뱅크 3333-12-4620464</span>
+          </span>
+          <button class="copy" data-acct="3333124620464">복사</button>
+        </div>
+        <div class="acct">
+          <span>
+            <span class="who">아버지 최동춘</span><br />
+            <span class="num">NH농협 302-0113-5844-81</span>
+          </span>
+          <button class="copy" data-acct="3020113584481">복사</button>
+        </div>
+        <div class="acct">
+          <span>
+            <span class="who">어머니 양인숙</span><br />
+            <span class="num">NH농협 175281-52-085291</span>
+          </span>
+          <button class="copy" data-acct="17528152085291">복사</button>
+        </div>
+      </details>
     </div>
 
-    <!-- 푸터 -->
-    <div class="section footer">
-      <p>소중한 날 함께해 주셔서 감사합니다</p>
+    <!-- 마무리 -->
+    <div class="closing">
+      <img
+        src="images/wedding/18.jpeg"
+        alt="한복을 입고 인사하는 신랑 신부"
+        width="1143"
+        height="1600"
+        loading="lazy"
+      />
     </div>
+
+    <div class="footer">
+      <p>소중한 날 함께해 주셔서</p>
+      <p>진심으로 감사합니다</p>
+    </div>
+
+    <script>
+      // ── D-Day ────────────────────────────────
+      (function () {
+        var el = document.getElementById("dday");
+        // 예식 시각을 KST로 고정 — 하객 단말의 표준시와 무관하게 같은 값이 나오게
+        var target = new Date("2026-10-11T10:40:00+09:00");
+
+        function render() {
+          var days = Math.ceil((target - new Date()) / 86400000);
+          if (days > 0) {
+            el.innerHTML =
+              "현진 &amp; 지수의 결혼식까지 <strong>" + days + "</strong>일";
+          } else if (days === 0) {
+            el.innerHTML = "<strong>오늘</strong>입니다";
+          } else {
+            el.innerHTML = "함께해 주셔서 감사합니다";
+          }
+        }
+
+        render();
+        setInterval(render, 60000);
+      })();
+
+      // ── 계좌 복사 ─────────────────────────────
+      (function () {
+        function legacyCopy(text) {
+          // clipboard API는 https가 아니거나 구형 인앱 브라우저에서 막힘
+          var ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          ta.setSelectionRange(0, ta.value.length); // iOS는 select()만으로는 부족
+          var ok = false;
+          try {
+            ok = document.execCommand("copy");
+          } catch (e) {}
+          document.body.removeChild(ta);
+          return ok;
+        }
+
+        function flash(btn, msg) {
+          var prev = btn.textContent;
+          btn.textContent = msg;
+          setTimeout(function () {
+            btn.textContent = prev;
+          }, 1400);
+        }
+
+        document.querySelectorAll(".copy").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var text = btn.dataset.acct;
+            if (navigator.clipboard && window.isSecureContext) {
+              navigator.clipboard.writeText(text).then(
+                function () {
+                  flash(btn, "복사됨");
+                },
+                function () {
+                  flash(btn, legacyCopy(text) ? "복사됨" : "실패");
+                }
+              );
+            } else {
+              flash(btn, legacyCopy(text) ? "복사됨" : "실패");
+            }
+          });
+        });
+      })();
+
+      // ── 배경음악 ──────────────────────────────
+      (function () {
+        var START = 0; // 이 지점(초)부터 재생
+        var audio = document.getElementById("bgm");
+        var btn = document.getElementById("bgm-toggle");
+
+        function seekToStart() {
+          try {
+            audio.currentTime = START;
+          } catch (e) {
+            /* 메타데이터가 아직 없으면 무시 */
+          }
+        }
+
+        function start() {
+          if (audio.readyState < 1) {
+            // 길이를 모르면 seek이 실패하므로 메타데이터 로드 후 이동
+            audio.addEventListener("loadedmetadata", seekToStart, {
+              once: true,
+            });
+          } else if (audio.currentTime < START) {
+            seekToStart();
+          }
+          return Promise.resolve(audio.play());
+        }
+
+        // 끝나면 START로 돌아가 반복 (loop 속성으로는 시작 지점 지정이 안 됨)
+        audio.addEventListener("ended", function () {
+          seekToStart();
+          audio.play();
+        });
+
+        // 버튼 모양은 실제 재생 상태를 따라가게 둔다
+        audio.addEventListener("play", function () {
+          btn.textContent = "❙❙";
+          btn.setAttribute("aria-label", "배경음악 정지");
+        });
+        audio.addEventListener("pause", function () {
+          btn.textContent = "♪";
+          btn.setAttribute("aria-label", "배경음악 재생");
+        });
+
+        // 1) 우선 그냥 재생을 시도한다. 카카오톡 인앱 브라우저처럼
+        //    자동재생이 허용된 환경에서는 이대로 소리가 난다.
+        start().catch(function () {
+          // 2) 차단되면 첫 화면 터치를 기다린다. 버튼을 따로 누르지 않아도
+          //    스크롤하려고 화면을 짚는 순간 재생돼 자동재생처럼 느껴진다.
+          //    스크롤 이벤트는 사용자 제스처로 인정되지 않아 pointerdown을 쓴다.
+          var kick = function (e) {
+            if (btn.contains(e.target)) return; // 버튼은 자기 핸들러가 처리
+            start().catch(function () {});
+            document.removeEventListener("pointerdown", kick);
+            document.removeEventListener("keydown", kick);
+          };
+          document.addEventListener("pointerdown", kick);
+          document.addEventListener("keydown", kick);
+        });
+
+        btn.addEventListener("click", function () {
+          if (audio.paused) {
+            start().catch(function () {});
+          } else {
+            audio.pause();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
