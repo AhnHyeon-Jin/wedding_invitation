@@ -40,10 +40,10 @@
       */
       :root {
         --bg: #f9f4e9; /* 웜 아이보리 — 기본 버전보다 한 톤 깊게 */
-        --ink: #3a332a; /* 갈색 기운의 먹색 */
-        --ink-soft: #8b7d69;
+        --ink: #2b2419; /* 갈색 기운의 먹색 — 진하게 */
+        --ink-soft: #6a5f4c;
         --line: #e7ddcc;
-        --accent: #a9744f; /* 마른 단풍 · 테라코타 */
+        --accent: #8f5a33; /* 마른 단풍 · 테라코타 — 진하게 */
         --card: #fffdf8; /* 카드 — 아이보리보다 살짝 밝게 */
       }
 
@@ -69,7 +69,7 @@
         background-color: var(--bg);
         background-image: /* 종이 결 */ url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
           /* 낙엽 무늬 — 320px 타일에 잎 네 장, stroke-opacity로 흐리게 */
-            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cg fill='none' stroke='%23a9744f' stroke-opacity='0.15' stroke-width='1.2' stroke-linecap='round'%3E%3Cg transform='translate(50 38) rotate(-18)'%3E%3Cpath d='M0 0C-13 11-14 28 0 40C14 28 13 11 0 0Z'/%3E%3Cpath d='M0 5V35' stroke-width='0.9'/%3E%3C/g%3E%3Cg transform='translate(232 98) rotate(34)'%3E%3Cpath d='M0 0C-10 8-11 21 0 30C11 21 10 8 0 0Z'/%3E%3Cpath d='M0 4V26' stroke-width='0.9'/%3E%3C/g%3E%3Cg transform='translate(118 212) rotate(-58)'%3E%3Cpath d='M0 0C-15 12-16 32 0 46C16 32 15 12 0 0Z'/%3E%3Cpath d='M0 6V40' stroke-width='0.9'/%3E%3C/g%3E%3Cg transform='translate(274 252) rotate(12)'%3E%3Cpath d='M0 0C-9 7-10 19 0 27C10 19 9 7 0 0Z'/%3E%3Cpath d='M0 4V23' stroke-width='0.9'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cg fill='none' stroke='%238f5a33' stroke-opacity='0.15' stroke-width='1.2' stroke-linecap='round'%3E%3Cg transform='translate(50 38) rotate(-18)'%3E%3Cpath d='M0 0C-13 11-14 28 0 40C14 28 13 11 0 0Z'/%3E%3Cpath d='M0 5V35' stroke-width='0.9'/%3E%3C/g%3E%3Cg transform='translate(232 98) rotate(34)'%3E%3Cpath d='M0 0C-10 8-11 21 0 30C11 21 10 8 0 0Z'/%3E%3Cpath d='M0 4V26' stroke-width='0.9'/%3E%3C/g%3E%3Cg transform='translate(118 212) rotate(-58)'%3E%3Cpath d='M0 0C-15 12-16 32 0 46C16 32 15 12 0 0Z'/%3E%3Cpath d='M0 6V40' stroke-width='0.9'/%3E%3C/g%3E%3Cg transform='translate(274 252) rotate(12)'%3E%3Cpath d='M0 0C-9 7-10 19 0 27C10 19 9 7 0 0Z'/%3E%3Cpath d='M0 4V23' stroke-width='0.9'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
           /* 위쪽 단풍색 번짐 */
             radial-gradient(
               125% 55% at 50% 0%,
@@ -188,14 +188,14 @@
       /*
         섹션 구분선을 세로 실선에서 잎 한 장으로 교체.
         마크업(.rule)은 그대로 두고 배경만 바꿔 5곳이 한 번에 적용된다.
-        stroke 색은 --accent와 같은 값(#a9744f)을 %23로 인코딩한 것.
+        stroke 색은 --accent와 같은 값(#8f5a33)을 %23로 인코딩한 것.
       */
       .rule {
         width: 24px;
         height: 30px;
         margin: 6px auto;
         opacity: 0.55;
-        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='30' viewBox='0 0 24 30'%3E%3Cg fill='none' stroke='%23a9744f' stroke-linecap='round'%3E%3Cpath d='M12 4C5.5 9.5 5 18 12 24C19 18 18.5 9.5 12 4Z' stroke-width='1'/%3E%3Cpath d='M12 6.5V26.5' stroke-width='0.8'/%3E%3C/g%3E%3C/svg%3E")
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='30' viewBox='0 0 24 30'%3E%3Cg fill='none' stroke='%238f5a33' stroke-linecap='round'%3E%3Cpath d='M12 4C5.5 9.5 5 18 12 24C19 18 18.5 9.5 12 4Z' stroke-width='1'/%3E%3Cpath d='M12 6.5V26.5' stroke-width='0.8'/%3E%3C/g%3E%3C/svg%3E")
           center / contain no-repeat;
       }
 
@@ -451,6 +451,105 @@
         cursor: pointer;
       }
 
+      /* ── 방명록 ───────────────────────────────── */
+      .gb-form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      /* var(--card)는 가을 버전에만 있어 기본 버전에서는 #fff로 떨어진다 */
+      .gb-form input,
+      .gb-form textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        background: var(--card, #fff);
+        color: var(--ink);
+        font-family: inherit;
+        font-size: 15px;
+        line-height: 1.8;
+        border-radius: 3px;
+      }
+
+      .gb-form textarea {
+        min-height: 96px;
+        resize: vertical;
+      }
+
+      .gb-form input:focus,
+      .gb-form textarea:focus {
+        outline: 1px solid var(--accent);
+        outline-offset: -1px;
+      }
+
+      .gb-form button {
+        align-self: center;
+        margin-top: 4px;
+        padding: 12px 28px;
+        border: 1px solid var(--accent);
+        background: transparent;
+        color: var(--accent);
+        font-family: inherit;
+        font-size: 14px;
+        letter-spacing: 2px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .gb-form button[disabled] {
+        opacity: 0.5;
+        cursor: default;
+      }
+
+      .gb-msg {
+        min-height: 20px;
+        margin-top: 10px;
+        font-size: 13px;
+        color: var(--accent);
+      }
+
+      .gb-list {
+        margin-top: 28px;
+        text-align: left;
+      }
+
+      .gb-item {
+        padding: 16px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .gb-item:first-child {
+        border-top: 0;
+      }
+
+      .gb-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 4px;
+      }
+
+      .gb-name {
+        font-size: 15px;
+      }
+
+      .gb-date {
+        flex: 0 0 auto;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: var(--ink-soft);
+      }
+
+      /* 하객이 줄바꿈한 대로 보이게, 긴 단어는 강제로 끊는다 */
+      .gb-text {
+        font-size: 15px;
+        line-height: 2;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
       /* ── 마무리 ───────────────────────────────── */
       /* 갤러리와 같은 폭으로 묶어 원본 비율대로 보이게 한다.
          폭 제한이 없으면 넓은 화면에서 원본보다 크게 늘어난다. */
@@ -704,14 +803,14 @@
         <div class="acct">
           <span>
             <span class="who">신랑 안현진</span><br />
-            <span class="num">KB국민 0921-02-0411-0201</span>
+            <span class="num">KB국민 092-10204110201</span>
           </span>
           <button class="copy" data-acct="09210204110201">복사</button>
         </div>
         <div class="acct">
           <span>
             <span class="who">아버지 안재민</span><br />
-            <span class="num">하나 184-180347-06</span>
+            <span class="num">하나 184-18-03470-6</span>
           </span>
           <button class="copy" data-acct="18418034706">복사</button>
         </div>
@@ -748,6 +847,44 @@
           <button class="copy" data-acct="17528152085291">복사</button>
         </div>
       </details>
+    </div>
+
+    <div class="rule"></div>
+
+    <!--
+      방명록. Firestore에 글을 남기고 읽는다. 설정값이 비어 있거나 SDK를
+      못 받아오면 이 섹션을 계속 숨겨서 빈 껍데기가 보이지 않게 한다.
+      (그래서 기본값이 hidden이고, 연결에 성공할 때만 JS가 펼친다)
+    -->
+    <div class="section" id="guestbook" hidden>
+      <h2>GUESTBOOK</h2>
+      <p class="note" style="margin-bottom: 24px">
+        축하의 한마디를 남겨주세요.
+      </p>
+
+      <form class="gb-form" id="gb-form">
+        <input
+          id="gb-name"
+          type="text"
+          placeholder="이름"
+          maxlength="20"
+          autocomplete="name"
+          required
+        />
+        <textarea
+          id="gb-text"
+          placeholder="축하 메시지"
+          maxlength="500"
+          required
+        ></textarea>
+        <button type="submit" id="gb-submit">남기기</button>
+      </form>
+
+      <p class="gb-msg" id="gb-msg"></p>
+
+      <div class="gb-list" id="gb-list"></div>
+
+      <button class="btn" id="gb-more" hidden>더 보기</button>
     </div>
 
     <!-- 마무리 -->
@@ -903,5 +1040,148 @@
         });
       })();
     </script>
+    <!--
+      방명록 — Firebase Firestore.
+      아래 config는 공개돼도 되는 값이다(비밀키가 아님). 대신 Firestore
+      보안 규칙에서 '생성만 허용, 수정·삭제 금지, 길이 제한'을 걸어야 한다.
+    -->
+    <script type="module">
+      const FIREBASE_CONFIG = {
+        apiKey: "AIzaSyBt457GIZdbcexgwS4vBConjidvxKH6ayw",
+        authDomain: "wedding-bb913.firebaseapp.com",
+        projectId: "wedding-bb913",
+        storageBucket: "wedding-bb913.firebasestorage.app",
+        messagingSenderId: "630972839051",
+        appId: "1:630972839051:web:2bedb60131dea071bd508e",
+      };
+
+      const SDK = "https://www.gstatic.com/firebasejs/10.12.2/";
+      const PAGE = 20; // 한 번에 보여줄 메시지 수
+
+      const $ = (id) => document.getElementById(id);
+
+      if (FIREBASE_CONFIG.apiKey.indexOf("__") === 0) {
+        console.warn("방명록: Firebase 설정값이 비어 있어 섹션을 숨겼습니다.");
+      } else {
+        start();
+      }
+
+      async function start() {
+        let fs, db;
+        try {
+          const [appMod, fsMod] = await Promise.all([
+            import(SDK + "firebase-app.js"),
+            import(SDK + "firebase-firestore.js"),
+          ]);
+          fs = fsMod;
+          db = fs.getFirestore(appMod.initializeApp(FIREBASE_CONFIG));
+        } catch (e) {
+          // SDK를 못 받아와도 나머지 페이지는 그대로 동작해야 한다
+          console.error("방명록 초기화 실패", e);
+          return;
+        }
+
+        const col = fs.collection(db, "guestbook");
+        const listEl = $("gb-list");
+        const msgEl = $("gb-msg");
+        const moreEl = $("gb-more");
+        const form = $("gb-form");
+        const submitEl = $("gb-submit");
+        let shown = PAGE;
+
+        function fmtDate(ts) {
+          // createdAt은 serverTimestamp — 서버 반영 전이면 null일 수 있다
+          const d = ts && ts.toDate ? ts.toDate() : new Date();
+          const p = (n) => String(n).padStart(2, "0");
+          return d.getFullYear() + ". " + p(d.getMonth() + 1) + ". " + p(d.getDate());
+        }
+
+        // 하객이 입력한 값이므로 반드시 이스케이프해서 넣는다
+        function esc(s) {
+          return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => {
+            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+          });
+        }
+
+        async function load() {
+          const snap = await fs.getDocs(
+            fs.query(col, fs.orderBy("createdAt", "desc"), fs.limit(shown + 1))
+          );
+          const docs = snap.docs.slice(0, shown);
+
+          listEl.innerHTML = "";
+          if (!docs.length) {
+            listEl.innerHTML =
+              '<p class="note" style="text-align:center">첫 번째 메시지를 남겨주세요.</p>';
+            moreEl.hidden = true;
+            return;
+          }
+
+          for (const doc of docs) {
+            const d = doc.data();
+            const el = document.createElement("div");
+            el.className = "gb-item";
+            el.innerHTML =
+              '<div class="gb-head"><span class="gb-name">' +
+              esc(d.name) +
+              '</span><span class="gb-date">' +
+              fmtDate(d.createdAt) +
+              '</span></div><div class="gb-text">' +
+              esc(d.message) +
+              "</div>";
+            listEl.appendChild(el);
+          }
+
+          // limit을 하나 더 불러와서 다음 페이지가 있는지 판단
+          moreEl.hidden = snap.docs.length <= shown;
+        }
+
+        moreEl.addEventListener("click", async () => {
+          shown += PAGE;
+          await load();
+        });
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const name = $("gb-name").value.trim();
+          const message = $("gb-text").value.trim();
+          if (!name || !message) {
+            msgEl.textContent = "이름과 메시지를 모두 입력해 주세요.";
+            return;
+          }
+
+          submitEl.disabled = true;
+          msgEl.textContent = "";
+          try {
+            // 보안 규칙이 이 세 필드만 허용하므로 그대로 맞춘다
+            await fs.addDoc(col, {
+              name: name,
+              message: message,
+              createdAt: fs.serverTimestamp(),
+            });
+            form.reset();
+            msgEl.textContent = "메시지를 남겼습니다. 감사합니다.";
+            await load();
+          } catch (err) {
+            console.error(err);
+            msgEl.textContent = "저장에 실패했습니다. 잠시 후 다시 시도해 주세요.";
+          } finally {
+            submitEl.disabled = false;
+          }
+        });
+
+        // 첫 로딩이 성공할 때만 섹션을 펼친다. 보안 규칙 미설정이나 장애로
+        // 읽기가 막히면 하객에게 오류 문구를 보이는 대신 섹션째로 감춘다.
+        try {
+          await load();
+        } catch (e) {
+          console.error("방명록 불러오기 실패", e);
+          return;
+        }
+
+        $("guestbook").hidden = false;
+      }
+    </script>
+
   </body>
 </html>
